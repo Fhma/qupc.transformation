@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="triple_digit" nsURI="http://www.example.org/triple_digit" nsPrefix="triple_digit">
+  <eClassifiers xsi:type="ecore:EClass" name="TripleDigit">
+    <eAnnotations source="tests">
+      <details key="x:int&lt;>" value="&lt;2,2,22,3,4,3,12,999999999,>"/>
+      <details key="y:int&lt;>" value="&lt;2,3,33,5,7,2,6,128>"/>
+      <details key="z:int&lt;>" value="&lt;8,8,44,7,32,50,470,1000000>"/>
+      <details key="expected:String&lt;>" value="&lt; &quot;0.500&quot;, &quot;001.000&quot;, &quot;004.534&quot;, &quot;034.714&quot;, &quot;512.000&quot;, &quot;0.180&quot;, &quot;353.157&quot;, &quot;000.000&quot; >"/>
+    </eAnnotations>
+    <eOperations name="calculation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eParameters name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="z" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

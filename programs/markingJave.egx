@@ -1,0 +1,5 @@
+rule marking2Python
+	transform _class:EClass {
+	template: "forJava.egl"
+	target: "Main.java"
+}

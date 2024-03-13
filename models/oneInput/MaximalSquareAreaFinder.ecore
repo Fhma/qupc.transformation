@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MaximalSquareAreaFinder" nsURI="sa/edu/qu/coc/qupc/generator/MaximalSquareAreaFinder"
+    nsPrefix="MaximalSquareAreaFinder">
+  <eClassifiers xsi:type="ecore:EClass" name="MaximalSquareAreaFinder">
+    <eAnnotations source="tests" references="#//MaximalSquareAreaFinder #//MaximalSquareAreaFinder/getMaximalSquareArea">
+      <details key="tests:int&lt;>&lt;>&lt;>" value="&lt; &lt;&lt;1, 0, 1, 0, 0>,&lt;1, 0, 1, 1, 1>,&lt;1, 1, 1, 1, 1>,&lt;1, 0, 0, 1, 0>>, &lt;&lt;0, 0, 0, 1>,&lt;1, 1, 0, 1>,&lt;1, 1, 1, 1>,&lt;0, 0, 0, 0>>, &lt;&lt;1, 1, 1>,&lt;1, 0, 1>,&lt;1, 1, 1>>, &lt;&lt;1, 0, 1, 1, 1>,&lt;1, 1, 1, 1, 1>,&lt;0, 1, 1, 1, 1>,&lt;1, 1, 1, 1, 1>,&lt;1, 1, 1, 1, 1>>, &lt;&lt;1, 1, 1>,&lt;1, 1, 1>,&lt;1, 1, 1>,&lt;1, 1, 1>,&lt;1, 1, 1>>, &lt;&lt;1, 0, 1, 0, 0>,&lt;0, 0, 1, 1, 1>,&lt;1, 1, 1, 1, 1>,&lt;1, 0, 0, 1, 0>>, &lt;&lt;1, 0>,&lt;0, 1>>, &lt;&lt;0, 0>,&lt;0, 0>>, &lt;&lt;1, 1, 1, 1, 1, 1, 1>,&lt;1, 1, 1, 1, 1, 1, 1>,&lt;1, 1, 1, 1, 1, 1, 1>,&lt;1, 1, 1, 1, 1, 1, 1>,&lt;1, 1, 1, 1, 1, 1, 1>,&lt;1, 1, 1, 1, 1, 1, 1>>, &lt;&lt;0>>>"/>
+      <details key="expected:int&lt;>" value=" &lt;6, 4, 3, 16, 15, 6, 1, 0, 42, 0>"/>
+    </eAnnotations>
+    <eOperations name="getMaximalSquareArea"/>
+  </eClassifiers>
+</ecore:EPackage>

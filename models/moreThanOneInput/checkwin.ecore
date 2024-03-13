@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="CheckWin" nsURI="sa/edu/qu/coc/qupc/generator/checkwin" nsPrefix="CheckWin">
+  <eClassifiers xsi:type="ecore:EClass" name="Contest">
+    <eAnnotations source="annotations">
+      <details key="tests:int[][]" value="&lt;&lt; 53, 446, 20, 66, 5 >,  &lt;10, 20, 44 >, &lt; 55, 66, 77, 88 >, &lt; 15, 14, 16, 19, 66, 30 >>"/>
+      <details key="points:int[]" value="&lt;512, 74, 88, 115 >"/>
+      <details key="expected:char[]" value="&lt; 'N', 'Y', 'Y', 'Y' >"/>
+    </eAnnotations>
+    <eOperations name="checkWin">
+      <eParameters name="tests">
+        <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+          <eTypeArguments/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="totalPoints" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

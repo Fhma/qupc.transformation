@@ -1,0 +1,5 @@
+rule oneInputInt2Python
+	transform _class:EClass {
+	template: "forPython.egl"
+	target: "Main.py"
+}

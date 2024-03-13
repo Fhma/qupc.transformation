@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="segment_Project" nsURI="http://www.example.org/segment_Project"
+    nsPrefix="segment_Project">
+  <eClassifiers xsi:type="ecore:EClass" name="Segment">
+    <eAnnotations source="tests">
+      <details key="s:String&lt;>" value="&lt;'aabbccdd', 'aaabbaaac', 'abba', 'aabbaaabbbaaaabbbbaaaaaccccc', 'string', '1', 'abccbabbaavbbaac'>"/>
+      <details key="expected:double&lt;>" value="&lt;2.000000000, 2.250000000, 1.333333333, 3.500000000, 1.000000000, 1.000000000, 1.454545455>"/>
+    </eAnnotations>
+    <eOperations name="average" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
+      <eParameters name="s" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Marking" nsURI="sa/edu/qu/coc/qupc/generator/challenge2" nsPrefix="Marking">
+  <eClassifiers xsi:type="ecore:EClass" name="Marking">
+    <eAnnotations source="tests" references="#//Marking #//Marking/totalBestMarks">
+      <details key="Ms:int &lt;>&lt;>&lt;>" value="&lt; &lt; &lt; 10, 20, 30 >, &lt; 40, 50, 60 >, &lt; 70, 80, 90 > >, &lt; &lt; 10, 20, 10 >, &lt; 50, 40, 20 > >, &lt; &lt; 90, 80, 20 >, &lt; 70, 60, 30 >, &lt; 50, 40, 60 >, &lt; 10, 20, 10 > >, &lt; &lt; 90, 80, 20 >, &lt; 70, 60, 30 >, &lt; 50, 10, 60 >, &lt; 30, 20, 40 > >, &lt; &lt; 90, 80, 20 >, &lt; 70, 60, 30 >, &lt; 50, 40, 60 >, &lt; 10, 20, 10 > >, &lt; &lt; 90, 80, 20 >, &lt; 70, 60, 30 >, &lt; 50, 40, 60 >, &lt; 10, 20, 10 > >, &lt; &lt; 90, 80, 20 >, &lt; 70, 60, 30 >, &lt; 50, 40, 60 >, &lt; 10, 20, 10 > >, &lt; &lt; 90, 80, 20 >, &lt; 70, 60, 30 >, &lt; 50, 40, 60 >, &lt; 10, 20, 10 > > >"/>
+      <details key="manys:int&lt;>&lt;>" value="&lt; &lt; 1, 2, 1 >, &lt; 1, 1 >, &lt; 0, 1, 2, 3 >, &lt; 0, 1, 2, 3 >,&lt; 1, 0, 3, 2 >, &lt; 1, 1, 1, 1 >, &lt; 0, 1, 0, 0 >, &lt; 0, 0, 0, 0 > >"/>
+      <details key="expected:int&lt;>" value="&lt; 180, 70, 170, 150, 190, 210, 70, 0 >"/>
+    </eAnnotations>
+    <eOperations name="totalBestMarks" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="Ms" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="manys" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>

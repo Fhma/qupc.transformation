@@ -1,0 +1,43 @@
+import json
+from [%=_class.name%] import *
+
+TEST_KEY:str = "Test "
+INPUT_KEY:str = "Inputs"
+EX_OUTPUT_KEY:str = "Expected output"
+ACT_OUTPUT_KEY:str = "Actual output"
+STATUS_KEY:str = "Status"
+PASSED_KEY:str = "PASSED"
+FAILED_KEY:str = "FAILED"
+JSONFILE_NAME_KEY:str = "Main.output.json"
+
+def main():
+		[% for(k in _class.eAnnotations.first.details) {%]
+			[% var strs = k.key.split(':'); %]
+			[%= strs[1]+ ' ' + strs[0] + '=' + (k.value.replace("<","{").replace(">","}")) + ';' %]
+		[% } %]
+    index:int = 0
+    report = {}
+    for index in range(0,len(expected),1):
+        data = {}
+        
+        [% for (p in _class.eAllOperations.first().eParameters) { %]
+        	[% if (_class.eAllOperations.first().eParameters.first == p) { %]
+        inputs = 'inputs=[' + str(','.join(map(str, [%= p.name + '[index]'%]))) + ']'
+        	[% } else { %]
+        inputs += ', many=[' + str(','.join(map(str, [%= p.name + '[index]'%]))) + ']'
+        		 [% } %]
+        	 [% } %]
+        		 
+        data[EX_OUTPUT_KEY] = expected[index]
+        obj = [%= _class.name%]()
+        res = obj.[%= _class.eAllOperations.first().name + '(' + _class.eAllOperations.first.eParameters.collect(e|e.name + '[index]').concat(',') + ')' %] 	
+        data[ACT_OUTPUT_KEY] = res
+        if res == expected[index]: data[STATUS_KEY] = PASSED_KEY
+        else: data[STATUS_KEY] = FAILED_KEY
+        index = index + 1
+        report[TEST_KEY + str(index)] = data
+    #end for
+    jsonObj = json.dumps(report)
+    with open(JSONFILE_NAME_KEY, "w") as file: file.write(jsonObj)
+
+if __name__ == "__main__": main()

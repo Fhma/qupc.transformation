@@ -1,0 +1,80 @@
+//package sa.edu.qu.qupc.marks;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
+public class Main {
+
+	public static final String TEST_KEY = "Test ";
+	public static final String INPUT_KEY = "Inputs";
+	public static final String EX_OUTPUT_KEY = "Expected output";
+	public static final String ACT_OUTPUT_KEY = "Actual output";
+	public static final String STATUS_KEY = "Status";
+	public static final String PASSED_KEY = "PASSED";
+	public static final String FAILED_KEY = "FAILED";
+	public static final String JSONFILE_NAME_KEY = "Main.output.json";
+
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args) {
+		[% for(k in _class.eAnnotations.first.details) {%]
+			[% var strs = k.key.split(':'); %]
+			[%= strs[1].replace("<","[").replace(">","]")+ ' ' + strs[0] + '=' + (k.value.replace("<","{").replace(">","}")) + ';' %]
+		[% } %]
+		[% var l1 = _class.eAnnotations.first.details.last.key.split(':')[0];%]
+		[% var f1 =_class.eAnnotations.first.details.first.key.split(':')[0];%]
+		[% var d2 =_class.eAnnotations.first.details.second.key.split(':')[0];%]
+		[% var d3 =_class.eAnnotations.last.details.first.key.split(':')[1];%]
+		[% var c1 = d2.split('<');%]
+		[% var count = d3.length() - d3.replace(">", "").length();%]
+		
+		JSONObject mainJsonObj = new JSONObject();
+		for (int i = 0; i < [%= f1 %].length; i++) {
+		JSONObject entryJsonObj = new JSONObject();
+		[%= _class.name%] obj = new [%= _class.name%]();
+		int res = obj.[%= _class.eAllOperations.first().name + '(' + f1 + '[i]' + ');' %]
+		[% if (_class.eAnnotations.first.details.size() > 2) {  %]
+			[% if ((c1[0].equals("String") == false) and count > 2){%]
+			StringBuilder str = new StringBuilder();			
+			for (int j=0; j<[%= f1 %][i].length; j++) {
+				str.append(String.format("%s\n",Arrays.toString([%= f1 %][i][j])));
+			}
+			str.append(String.format(" ,[%= d2 %] = %s\n",Arrays.toString([%= d2 %][i])));
+			[% } %]
+		[%} else {%]
+		[% var f2 =_class.eAnnotations.first.details.first.key.split(':')[1];%]
+		[% var s1 = f2.split('<');%]
+		[% var count = f2.length() - f2.replace(">", "").length();%]
+			[% if ((s1[0].equals("String") == false) and count > 2){%]
+			StringBuilder str = new StringBuilder();			
+			for (int j=0; j<[%= f1 %][i].length; j++) {
+				str.append(String.format("%s\n",Arrays.toString([%= f1 %][i][j])));
+			}
+			[% } %]
+			entryJsonObj.put(INPUT_KEY, String.format("%s",[% if (s1[0].equals("String")){%][%= f1 + '[i] ));'%][% } else if(count > 2){%] [%='str));'%] [%} else { %][%= 'Arrays.toString('+ f1 + '[i] )));'%] [% } %] 
+			entryJsonObj.put(EX_OUTPUT_KEY, String.format("%d",[%= l1 %][i]));
+			entryJsonObj.put(ACT_OUTPUT_KEY, String.format("%d", res));
+		[% } %]
+			if (res == [%= l1%][i])
+				entryJsonObj.put(STATUS_KEY, PASSED_KEY);
+			else
+				entryJsonObj.put(STATUS_KEY, FAILED_KEY);
+
+			mainJsonObj.put("Test " + (i + 1), entryJsonObj);
+		}
+
+		try {
+			FileWriter file = new FileWriter("./Main.output.json");
+			String jsonString = JSONValue.toJSONString(mainJsonObj);
+			file.write(jsonString);
+			file.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+}
