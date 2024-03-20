@@ -1,0 +1,8 @@
+@namespace(uri="sa/edu/qu/oc/generator/StringSearch", prefix="StringSearch")
+package StringSearch;
+
+@tests("mine:string<>"="< '><>>', '<><>><', '<<><>', '<<<<<<<<', '>>>>>>><<<<<<<<', '>>>>>><><<<<<<', '<<<><>><', '<><><<<><<>>><>', '<<<<>>>>' , '<>>>>>><<<<><<<<>>>>>><>', '>>>><<<<<<>><<><<<<>>>>>>><>>>>' >", "expexted:int<>"="<1, 2, 2, 0, 0, 1, 3, 7, 4, 9, 13")
+class StringSearch {
+	op int diamondFinder(int mine);
+}
+

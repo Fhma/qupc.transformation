@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MatrixDiagonalSum" nsURI="sa/edu/qu/oc/generator/MatrixDiagonalSum"
+    nsPrefix="MatrixDiagonalSum">
+  <eClassifiers xsi:type="ecore:EClass" name="MatrixDiagonalSum">
+    <eAnnotations source="tests">
+      <details key="matrix:int&lt;>&lt;>" value="&lt; &lt;&lt;1, 2, 3>,&lt;4, 5, 6>,&lt;7, 8, 9>>, &lt;&lt;2, 0, 0>,&lt;0, 2, 0>,&lt;0, 0, 2>>, &lt;&lt;3, 5>,&lt;8, 2>>, &lt;&lt;1, 0, 0, 0>,&lt;0, 1, 0, 0>,&lt;0, 0, 1, 0>,&lt;0, 0, 0, 1>>, &lt;&lt;9>>, &lt;&lt;1, 2, 3, 4>,&lt;5, 6, 7, 8>,&lt;9, 10, 11, 12>,&lt;13, 14, 15, 16>>, &lt;&lt;5, 0, 0, 0, 0>,&lt;0, 5, 0, 0, 0>,&lt;0, 0, 5, 0, 0>,&lt;0, 0, 0, 5, 0>,&lt;0, 0, 0, 0, 5>>, &lt;&lt;1, 0, 0>,&lt;0, 2, 0>,&lt;0, 0, 3>>, &lt;&lt;10, -2>,&lt;-3, 20>>, &lt;&lt;0, 0>,&lt;0, 0>>>"/>
+      <details key="expexted:int&lt;>" value="&lt;15, 6,5,4,9,34,25,6,30,0>"/>
+    </eAnnotations>
+    <eOperations name="getMainDiagonalSum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="matrix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>
