@@ -27,28 +27,37 @@ public class Main {
 		[% } %]
 		[% var l1 = _class.eAnnotations.first.details.last.key.split(':')[0];%]
 		[% var f1 =_class.eAnnotations.first.details.first.key.split(':')[0];%]
-		[% var d2 =_class.eAnnotations.first.details.second.key.split(':')[0];%]
-		[% var d3 =_class.eAnnotations.last.details.first.key.split(':')[1];%]
-		[% var c1 = d2.split('<');%]
-		[% var count = d3.length() - d3.replace(">", "").length();%]
-		
-		JSONObject mainJsonObj = new JSONObject();
-		for (int i = 0; i < [%= f1 %].length; i++) {
-		JSONObject entryJsonObj = new JSONObject();
-		[%= _class.name%] obj = new [%= _class.name%]();
-		int res = obj.[%= _class.eAllOperations.first().name + '(' + f1 + '[i]' + ');' %]
-		[% if (_class.eAnnotations.first.details.size() > 2) {  %]
-			[% if ((c1[0].equals("String") == false) and count > 2){%]
-			StringBuilder str = new StringBuilder();			
-			for (int j=0; j<[%= f1 %][i].length; j++) {
-				str.append(String.format("%s\n",Arrays.toString([%= f1 %][i][j])));
-			}
-			str.append(String.format(" ,[%= d2 %] = %s\n",Arrays.toString([%= d2 %][i])));
-			[% } %]
-		[%} else {%]
 		[% var f2 =_class.eAnnotations.first.details.first.key.split(':')[1];%]
 		[% var s1 = f2.split('<');%]
 		[% var count = f2.length() - f2.replace(">", "").length();%]
+		[% if (_class.eAnnotations.first.details.size() > 2) {  %]
+		
+		JSONObject jsonObj = new JSONObject();
+		for (int i = 0; i <[%= f1 %].length; i++) {
+			JSONObject entryJsonObj = new JSONObject();
+			StringBuilder str = new StringBuilder();
+			[% for(k in _class.eAnnotations.first.details) {%]
+				[% if (k == _class.eAnnotations.first.details.last){break;} %]
+				[% else { %]
+			int j = 0;
+			for (; j < [%= k.key.split(':')[0] %][0].length; j++) {
+			[% if (k == _class.eAnnotations.first.details.first){%]
+				str.append(String.format("[%= k.key.split(':')[0] %] = %s",[% if (s1[0].equals("String")){%][%= ''%][%} else { %][%= 'Arrays.toString' %][%} %][%= '(' + k.key.split(':')[0] %][i][j])));
+				 } 
+			[% } else { %]
+				str.append(String.format(", [%= k.key.split(':')[0] %] = %s",[% if (s1[0].equals("String")){%][%= ''%][%} else { %][%= 'Arrays.toString' %][%} %][%= '(' + k.key.split(':')[0] %][i][j])));
+				 }
+			[% } %]
+			[% } %]
+			[% } %]	
+			entryJsonObj.put(INPUT_KEY, String.format("%s", str));
+		[%} else {%]
+		
+		JSONObject mainJsonObj = new JSONObject();
+		for (int i = 0; i < [%= f1 %].length; i++) {
+			JSONObject entryJsonObj = new JSONObject();
+			[%= _class.name%] obj = new [%= _class.name%]();
+			int res = obj.[%= _class.eAllOperations.first().name + '(' + f1 + '[i]' + ');' %]
 			[% if ((s1[0].equals("String") == false) and count > 2){%]
 			StringBuilder str = new StringBuilder();			
 			for (int j=0; j<[%= f1 %][i].length; j++) {
@@ -56,9 +65,9 @@ public class Main {
 			}
 			[% } %]
 			entryJsonObj.put(INPUT_KEY, String.format("%s",[% if (s1[0].equals("String")){%][%= f1 + '[i] ));'%][% } else if(count > 2){%] [%='str));'%] [%} else { %][%= 'Arrays.toString('+ f1 + '[i] )));'%] [% } %] 
+		[% } %]
 			entryJsonObj.put(EX_OUTPUT_KEY, String.format("%d",[%= l1 %][i]));
 			entryJsonObj.put(ACT_OUTPUT_KEY, String.format("%d", res));
-		[% } %]
 			if (res == [%= l1%][i])
 				entryJsonObj.put(STATUS_KEY, PASSED_KEY);
 			else
