@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="StringSearch" nsURI="sa/edu/qu/oc/generator/StringSearch" nsPrefix="StringSearch">
+  <eClassifiers xsi:type="ecore:EClass" name="StringSearch">
+    <eAnnotations source="tests">
+      <details key="mine:string&lt;>" value="&lt; '>&lt;>>', '&lt;>&lt;>>&lt;', '&lt;&lt;>&lt;>', '&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;', '>>>>>>>&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;', '>>>>>>&lt;>&lt;&lt;&lt;&lt;&lt;&lt;', '&lt;&lt;&lt;>&lt;>>&lt;', '&lt;>&lt;>&lt;&lt;&lt;>&lt;&lt;>>>&lt;>', '&lt;&lt;&lt;&lt;>>>>' , '&lt;>>>>>>&lt;&lt;&lt;&lt;>&lt;&lt;&lt;&lt;>>>>>>&lt;>', '>>>>&lt;&lt;&lt;&lt;&lt;&lt;>>&lt;&lt;>&lt;&lt;&lt;&lt;>>>>>>>&lt;>>>>' >"/>
+      <details key="expexted:int&lt;>" value="&lt;1, 2, 2, 0, 0, 1, 3, 7, 4, 9, 13"/>
+    </eAnnotations>
+    <eOperations name="diamondFinder" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="mine" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+  </eClassifiers>
+</ecore:EPackage>
